@@ -12,3 +12,9 @@ function loadTasks() {
         console.error("Failed to load tasks:", error);
     }
 }
+
+
+// Function to load tasks from localStorage when the page loads
+function loadTasks() {
+    console.log("Loading tasks...");
+}
