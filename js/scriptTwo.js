@@ -5,5 +5,10 @@ window.onload = function() {
 
 // Function to load tasks from localStorage when the page loads
 function loadTasks() {
-    console.log("Loading tasks...");
+    try {
+        let savedTasks = JSON.parse(localStorage.getItem('tasks'));
+        console.log("Tasks loaded successfully.");
+    } catch (error) {
+        console.error("Failed to load tasks:", error);
+    }
 }
