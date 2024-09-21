@@ -11,6 +11,12 @@ function loadTasks() {
             let taskList = document.getElementById('taskList');
             taskList.innerHTML = "";  // Clear any existing tasks
         }
+
+        savedTasks.forEach(task => {
+            let taskItem = createTaskElement(task.text, task.priority, task.category, task.date, task.reminder, task.completed);
+            taskList.appendChild(taskItem);
+        });
+        
     } catch (error) {
         console.error("Failed to load tasks:", error);
     }
