@@ -3,18 +3,15 @@ window.onload = function() {
     loadTasks();
 };
 
-// Function to load tasks from localStorage when the page loads
 function loadTasks() {
     try {
         let savedTasks = JSON.parse(localStorage.getItem('tasks'));
-        console.log("Tasks loaded successfully.");
+
+        if (savedTasks && Array.isArray(savedTasks)) {
+            let taskList = document.getElementById('taskList');
+            taskList.innerHTML = "";  // Clear any existing tasks
+        }
     } catch (error) {
         console.error("Failed to load tasks:", error);
     }
-}
-
-
-// Function to load tasks from localStorage when the page loads
-function loadTasks() {
-    console.log("Loading tasks...");
 }
