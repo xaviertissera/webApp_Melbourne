@@ -27,6 +27,10 @@ function loadTasks() {
 function createTaskElement(taskText, priority, category, date, reminder, isCompleted = false) {
     let li = document.createElement('li');
     li.className = `${priority}-priority ${category}-category`;
+
+    li.setAttribute('data-reminder', reminder);  // Add reminder attribute
+    li.setAttribute('data-category', category);  // Add category attribute
+    
     li.innerHTML = `
         <span style="text-decoration: ${isCompleted ? 'line-through' : 'none'};">${taskText}</span> - <small>Due: ${new Date(date).toLocaleDateString()}</small>
         <div>
