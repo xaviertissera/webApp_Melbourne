@@ -30,7 +30,7 @@ function createTaskElement(taskText, priority, category, date, reminder, isCompl
 
     li.setAttribute('data-reminder', reminder);  // Add reminder attribute
     li.setAttribute('data-category', category);  // Add category attribute
-    
+
     li.innerHTML = `
         <span style="text-decoration: ${isCompleted ? 'line-through' : 'none'};">${taskText}</span> - <small>Due: ${new Date(date).toLocaleDateString()}</small>
         <div>
@@ -41,4 +41,18 @@ function createTaskElement(taskText, priority, category, date, reminder, isCompl
     `;
     return li;
 }
+
+// Function to edit a task
+function editTask(button) {
+    let taskItem = button.parentElement.parentElement;
+    let taskSpan = taskItem.querySelector('span');
+    let taskText = taskSpan.textContent;
+
+    let newTaskText = prompt("Edit task:", taskText);
+    if (newTaskText !== null && newTaskText.trim() !== "") {
+        taskSpan.textContent = newTaskText.trim();
+        saveTasks();  // Save after editing
+    }
+}
+
 
