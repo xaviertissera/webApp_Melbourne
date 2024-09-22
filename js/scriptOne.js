@@ -46,13 +46,32 @@ function addTask() {
             }, reminderTimeDiff);
         }
     }
-
-    // Clear input fields after adding task
-    taskInputElement.value = "";
-    document.getElementById('taskDate').value = "";
-    document.getElementById('taskPriority').value = "low"; // Reset priority
-    document.getElementById('taskReminder').value = "none"; // Reset reminder
-    document.getElementById('taskCategory').value = "work"; // Reset category
-
+    
+     // Clear input fields after adding task
+     taskInputElement.value = "";
+     document.getElementById('taskDate').value = "";
+     document.getElementById('taskPriority').value = "low"; // Reset priority
+     document.getElementById('taskReminder').value = "none"; // Reset reminder
+     document.getElementById('taskCategory').value = "work"; // Reset category
      
+}
+
+// Function to save tasks to localStorage
+function saveTasks() {
+    let tasks = [];
+    let taskListItems = document.getElementById('taskList').children;
+
+    // Collect task data for saving
+    for (let taskItem of taskListItems) {
+        let taskText = taskItem.querySelector('span').textContent;
+        let taskPriority = taskItem.className.split(' ')[0]; // Extract priority class
+        let taskReminder = taskItem.getAttribute('data-reminder'); // Get reminder
+        let taskCategory = taskItem.getAttribute('data-category'); // Get category
+        let isCompleted = taskItem.querySelector('span').style.textDecoration === "line-through";
+        let taskDate = taskItem.querySelector('small').textContent.replace('Due: ', '');
+        tasks.push({ text: taskText, priority: taskPriority, reminder: taskReminder, category: taskCategory, completed: isCompleted, date: new Date(taskDate).toISOString().split('T')[0] });
+    }
+
+    // Save tasks to localStorage
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
