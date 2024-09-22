@@ -70,3 +70,10 @@ function completeTask(button) {
     saveTasks();  // Save after marking complete/incomplete
 }
 
+// Function to remove a task
+function removeTask(button) {
+    let taskItem = button.parentElement.parentElement;
+    taskItem.remove();
+    saveTasks();  // Save after removing task
+    updateProgressBar();  // Update progress bar after removal
+}
