@@ -53,6 +53,11 @@ function addTask() {
      document.getElementById('taskPriority').value = "low"; // Reset priority
      document.getElementById('taskReminder').value = "none"; // Reset reminder
      document.getElementById('taskCategory').value = "work"; // Reset category
+
+      // Save tasks to localStorage and update the progress bar
+    saveTasks();
+    updateProgressBar();
+    updateAddButtonState();
      
 }
 
