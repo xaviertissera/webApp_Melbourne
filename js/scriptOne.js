@@ -46,5 +46,13 @@ function addTask() {
             }, reminderTimeDiff);
         }
     }
+
+    // Clear input fields after adding task
+    taskInputElement.value = "";
+    document.getElementById('taskDate').value = "";
+    document.getElementById('taskPriority').value = "low"; // Reset priority
+    document.getElementById('taskReminder').value = "none"; // Reset reminder
+    document.getElementById('taskCategory').value = "work"; // Reset category
+
      
 }
