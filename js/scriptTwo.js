@@ -56,3 +56,17 @@ function editTask(button) {
 }
 
 
+
+// Function to mark a task as complete/incomplete
+function completeTask(button) {
+    let taskItem = button.parentElement.parentElement;
+    let taskSpan = taskItem.querySelector('span');
+
+    if (taskSpan.style.textDecoration === "line-through") {
+        taskSpan.style.textDecoration = "none";
+    } else {
+        taskSpan.style.textDecoration = "line-through";
+    }
+    saveTasks();  // Save after marking complete/incomplete
+}
+
