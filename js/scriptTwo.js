@@ -42,7 +42,6 @@ function createTaskElement(taskText, priority, category, date, reminder, isCompl
     return li;
 }
 
-<<<<<<< Updated upstream
 // Function to edit a task
 function editTask(button) {
     let taskItem = button.parentElement.parentElement;
@@ -57,7 +56,6 @@ function editTask(button) {
 }
 
 
-=======
 
 // Function to mark a task as complete/incomplete
 function completeTask(button) {
@@ -71,4 +69,4 @@ function completeTask(button) {
     }
     saveTasks();  // Save after marking complete/incomplete
 }
->>>>>>> Stashed changes
+
