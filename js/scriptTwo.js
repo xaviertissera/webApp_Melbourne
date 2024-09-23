@@ -73,7 +73,10 @@ function completeTask(button) {
 // Function to remove a task
 function removeTask(button) {
     let taskItem = button.parentElement.parentElement;
-    taskItem.remove();
-    saveTasks();  // Save after removing task
-    updateProgressBar();  // Update progress bar after removal
+    taskItem.style.opacity = 0;
+    setTimeout(() => {
+        taskItem.remove();
+        saveTasks();
+        updateProgressBar();
+    }, 300);  // Wait 300ms before removing the task
 }
