@@ -91,3 +91,9 @@ function updateProgressBar() {
     let progress = (completedTasks / totalTasks) * 100;
     document.querySelector('.progress-bar').style.width = progress + '%';
 }
+
+window.onload = function() {
+    loadTasks();
+    document.getElementById('categoryFilter').addEventListener('change', filterTasks);
+    document.getElementById('taskInput').addEventListener('input', updateAddButtonState);
+};
