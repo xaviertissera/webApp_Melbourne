@@ -80,3 +80,14 @@ function removeTask(button) {
         updateProgressBar();
     }, 300);  // Wait 300ms before removing the task
 }
+
+// Function to update the progress bar
+function updateProgressBar() {
+    let taskListItems = document.querySelectorAll('#taskList li');
+    let totalTasks = taskListItems.length;
+    let completedTasks = Array.from(taskListItems).filter(item => 
+        item.querySelector('span').style.textDecoration === 'line-through'
+    ).length;
+    let progress = (completedTasks / totalTasks) * 100;
+    document.querySelector('.progress-bar').style.width = progress + '%';
+}
