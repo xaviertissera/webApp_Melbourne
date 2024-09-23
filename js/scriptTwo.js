@@ -99,3 +99,5 @@ window.onload = function() {
     document.getElementById('categoryFilter').addEventListener('change', filterTasks);
     document.getElementById('taskInput').addEventListener('input', updateAddButtonState);
 };
+
+//End of scriptTwo.js
